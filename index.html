@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zhanél Samatova — CV</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e0f13;           /* deep charcoal */
+      --panel:#12141b;        /* card bg */
+      --muted:#9aa0ac;        /* muted text */
+      --text:#eef2f8;         /* primary text */
+      --sub:#c7ccda;          /* secondary text */
+      --accent:#f65cf6;       /* purple */
+      --accent-2:#fa8bc8;     /* lighter purple */
+      --chip:#1a1f2b;         /* chip bg */
+      --chip-bd:#252a39;      /* chip border */
+      --glow: 0 12px 40px rgba(246, 92, 195, 0.25);
+      --radius:16px; --radius-lg:22px; --radius-xl:28px;
+      --grid-c:#1a1d26;       /* grid color */
+      --container:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--text);text-decoration:none}
+    a:hover{color:var(--accent-2)}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* ===== background grid + vignette ===== */
+    body::before, body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2}
+    /* grid */
+    body::before{background:
+      linear-gradient(var(--grid-c) 1px, transparent 1px) 0 0 / 24px 24px,
+      linear-gradient(90deg, var(--grid-c) 1px, transparent 1px) 0 0 / 24px 24px;
+      opacity:.35}
+    /* vignette + purple corner glow */
+    body::after{background:radial-gradient(800px 800px at 95% 6%, rgba(139,92,246,.25), transparent 60%),
+                         radial-gradient(900px 900px at 0% 100%, rgba(56,189,248,.10), transparent 60%),
+                         radial-gradient(1200px 1200px at 50% -10%, rgba(0,0,0,.55), transparent 60%);
+                 z-index:-1}
+
+    header.site{position:sticky;top:0;background:rgba(14,15,19,.55);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid #23283a}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .brand .dot{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),#5eead4);color:#0b0c10;font-weight:900}
+    .navlinks a{margin:0 12px;color:var(--sub);font-weight:600}
+    .navlinks a:hover{color:#fff}
+    .menu-toggle{display:none}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
+    .card{background:linear-gradient( to bottom right, rgba(255,255,255,.03), rgba(255,255,255,.02)); border:1px solid #23283a;border-radius:var(--radius-xl);box-shadow:var(--glow)}
+    .hero-card{padding:30px}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent-2);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+    .title{font-weight:800;font-size:3rem;line-height:1.05;margin:.3rem 0 1rem;letter-spacing:.2px}
+    .subtitle{color:var(--sub);font-size:1.05rem;line-height:1.7}
+    .quick{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
+
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.1rem;border-radius:14px;border:1px solid #2a3146;background:#121420;color:#fff;font-weight:700}
+    .btn.accent{background:linear-gradient(135deg,var(--accent),#5b8dff);border-color:transparent}
+    .btn.ghost{background:transparent;border-color:#2a3146;color:#d7dbeb}
+    .btn:hover{transform:translateY(-1px)}
+
+    .chip{display:inline-block;padding:.45rem .7rem;border-radius:999px;background:var(--chip);border:1px solid var(--chip-bd);color:#cfd5e6;font-weight:700;font-size:.85rem;margin:.25rem .35rem .25rem 0}
+
+    .panel{padding:18px;border-radius:18px;border:1px dashed #2a3146;background:rgba(18,20,32,.45);color:var(--sub)}
+
+    .avatar-wrap{margin:10px;position:relative;background:radial-gradient(120% 120% at 10% 10%, rgba(139,92,246,.25), transparent 50%);border-radius:22px;padding:16px}
+    .avatar{width:100%;aspect-ratio:1/1;border-radius:18px;object-fit:cover;border:1px solid #2a3146;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+
+    .section{padding:28px; margin:18px 0}
+    .section h2{font-size:1.05rem;margin:0 0 14px 0;letter-spacing:.14em;text-transform:uppercase;color:#eaeefe}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stack{display:flex;flex-direction:column;gap:10px}
+
+    .item{padding:18px;border:1px solid #23283a;border-radius:18px;background:linear-gradient( to bottom right, rgba(255,255,255,.03), rgba(255,255,255,.02));}
+    .item h3{margin:0 0 8px 0;font-size:1.06rem}
+    .item p{margin:6px 0;color:var(--sub);line-height:1.7}
+    .meta{color:#9aa3b2;font-size:.95rem}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+    /* certificates carousel */
+    .carousel{position:relative;overflow:hidden;border-radius:18px;border:1px solid #23283a}
+    .slides{display:flex;transition:transform .45s ease}
+    .slides img{width:100%;height:auto;display:block}
+    .car-ctr{position:absolute;inset:auto 10px 10px auto;display:flex;gap:8px}
+    .car-btn{background:#171b27;border:1px solid #2a3146;color:#eaeefe;padding:.5rem .7rem;border-radius:12px;cursor:pointer}
+
+    footer{padding:38px 0;color:var(--muted);text-align:center}
+
+    @media (max-width: 960px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width: 680px){.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav" id="nav">
+      <div class="brand"><span class="dot">ZS</span> Zhanél Samatova (=^x^=)</div>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#leadership">Activities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="card hero-card">
+        <div class="eyebrow">Backend • Java • PostgreSQL</div>
+        <h1 class="title">Hi! I'm Zhanél — a junior software developer ✦</h1>
+        <div class="stack" style="gap:10px;color:var(--sub)">
+          <div>
+           <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">C++</span>
+            <span class="chip">Swift (basic)</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">HTML/CSS/JS</span>
+            <span class="chip">Pandas (basic)</span>
+
+          </div>
+          <p class="subtitle">I'm a Software Engineering student at Astana IT University passionate about building useful and clean software. I enjoy backend, data pipelines, and modern web UI.</p>
+        </div>
+        <div class="quick">
+          <a class="btn accent" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="card" style="padding:18px">
+        <div class="avatar-wrap">
+          <img class="avatar" src="photo_2025-10-23 01.49.22.jpeg" alt="Zhanél portrait" onerror="this.src='https://dummyimage.com/900x900/1c2233/b8c1d9.png&text=Your+Photo'">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card section" id="about">
+      <h2>About</h2>
+      <p class="subtitle">Second-year Software Engineering student focused on backend development. Interested in Java-based services, databases, and clean architecture. Open to internships and part-time roles.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card section" id="projects">
+      <h2>Projects</h2>
+      <div class="grid-2">
+        <div class="item">
+          <h3>Bank — Accounts & Transfers</h3>
+          <div class="meta">Java • Spring Boot • PostgreSQL</div>
+          <p>Interactive banking backend: open accounts, deposit/withdraw, transfer funds, and track transactions. Uses layered architecture, DTOs, and validation. Clean endpoints for future React UI.</p>
+          <div class="links">
+            <a class="btn" href="#contact">Request Code</a>
+          </div>
+        </div>
+        <div class="item">
+          <h3>Decentrathon — Personalized Push Marketing</h3>
+          <div class="meta">Python • Pandas • Automation</div>
+          <p>End‑to‑end pipeline: preprocessing CSVs, feature engineering, benefit evaluation per client, and NLG to generate push notifications + Top‑4 product ranking.</p>
+          <div class="links">
+            <a class="btn" href="https://github.com/wnxsts/Decentrathon-project" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="card section" id="skills">
+      <h2>Skills</h2>
+      <div class="grid-2">
+        <div class="item">
+          <h3>Technical</h3>
+          <p><strong>Languages:</strong> Java, Python, JavaScript, C++, C# (basic), Swift (basic)</p>
+          <p><strong>Backend:</strong> Spring Boot · REST APIs</p>
+          <p><strong>Databases:</strong> PostgreSQL, MySQL · SQL</p>
+          <p><strong>Web:</strong> HTML5, CSS3, Bootstrap</p>
+          <p><strong>Data:</strong> Pandas, Jupyter (basic)</p>
+          <p><strong>Tools:</strong> Git, IntelliJ IDEA, VS Code, Unity (basic)</p>
+          <p><strong>Concepts:</strong> OOP, Design Patterns, DSA</p>
+        </div>
+        <div class="item">
+          <h3>Soft</h3>
+          <p class="stack" style="margin-top:10px">
+            <span>Problem‑solving & critical thinking</span>
+            <span>Teamwork and communication</span>
+            <span>Responsibility & adaptability</span>
+            <span>Time management</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION / CERTS / ACTIVITIES -->
+    <section class="grid-2" id="education">
+      <div class="card section">
+        <h2>Education</h2>
+        <div class="item">
+          <h3>Astana IT University</h3>
+          <div class="meta">BSc in Software Engineering • 2024 – 2027 • Astana, Kazakhstan</div>
+          <p>Coursework: software design, algorithms, databases, web technologies.</p>
+        </div>
+        <div class="item">
+          <h3>STEP IT Academy</h3>
+          <div class="meta">Programming Diploma</div>
+          <p>Training in Java, Python, JavaScript, C++, HTML, CSS, Bootstrap.</p>
+        </div>
+      </div>
+      <div class="card section" id="leadership">
+        <h2>Certificates & Activities</h2>
+        <div class="item">
+          <h3>President — AITU AI Club</h3>
+          <div class="meta">2024 – Present</div>
+          <p>Organize workshops on Python/ML, mentor newcomers, and run project‑based sessions.</p>
+        </div>
+        <div class="item">
+          <h3>Certificate — STEP IT Academy</h3>
+          <div class="carousel" id="certCarousel">
+            <div class="slides">
+              <img src="photo_2025-10-23 01.58.07.jpeg" alt="Certificate 1" onerror="this.src='https://dummyimage.com/1200x700/171b27/9aa3b2.png&text=Your+Certificate'">
+              <img src="photo_2025-10-23 02.01.03.jpeg" alt="Certificate 2" onerror="this.src='https://dummyimage.com/1200x700/171b27/9aa3b2.png&text=Another+Certificate'">
+            </div>
+            <div class="car-ctr">
+              <button class="car-btn" data-dir="-1">◀</button>
+              <button class="car-btn" data-dir="1">▶</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <h3>Languages</h3>
+          <p><strong>English:</strong> Upper‑Intermediate • <strong>Kazakh:</strong> Native • <strong>Russian:</strong> Fluent</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card section" id="contact" style="margin-top:18px">
+      <h2>Contact</h2>
+      <p class="subtitle">Open to internships and collaborations. Let's talk!</p>
+      <div class="grid-3">
+        <a class="item" href="mailto:samatova.zh.06@gmail.com"><h3>Email</h3><p class="meta">samatova.zh.06@gmail.com</p></a>
+        <a class="item" href="tel:+77004447709"><h3>Phone</h3><p class="meta">+7 700 444 7709</p></a>
+        <a class="item" href="https://github.com/wnxsts" target="_blank" rel="noopener"><h3>GitHub</h3><p class="meta">github.com/wnxsts</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container"> (=^x^=) Samatova Zhanel <3  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+          document.getElementById('nav')?.classList.remove('open');
+        }
+      });
+    });
+
+    // simple certificate carousel
+    (function(){
+      const wrap = document.querySelector('#certCarousel .slides');
+      if(!wrap) return;
+      let idx = 0; const total = wrap.children.length;
+      function render(){ wrap.style.transform = `translateX(${-idx*100}%)`; }
+      document.querySelectorAll('#certCarousel .car-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{ idx = (idx + Number(btn.dataset.dir) + total) % total; render(); });
+      });
+      // set widths
+      Array.from(wrap.children).forEach(el=>{ el.style.minWidth = '100%'; });
+      render();
+    })();
+  </script>
+</body>
+</html>
